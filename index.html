@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mess with Grinder</title>
+  <style>
+    body {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .alarm-button {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff0000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.1s ease-in-out;
+    }
+
+    .alarm-button:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 5px #880000;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="alarm-button" onclick="sendPushover()">
+    <div>Mess</div>
+    <div>With</div>
+    <div>Grinder</div>
+  </button>
+
+  <script>
+    function sendPushover() {
+      const token = "ahtyqc594aau4aj5ftcupgky7znu64";       // Replace with your app token
+      const user = "uftmczjsvu9oqt2jgguyfvfqa7hcy";         // Replace with your user key
+      const sound = "grinder";    // Replace with your sound (e.g., 'bike', 'alien', etc.)
+
+      fetch("https://api.pushover.net/1/messages.json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+          token: token,
+          user: user,
+          message: "🔔 You suck!",
+          title: "Grinder Alert",
+          sound: sound
+        })
+      })
+      .then(response => {
+        if (!response.ok) {
+          alert("Failed to send notification!");
+        } else {
+          alert("Pushover notification sent!");
+        }
+      })
+      .catch(error => {
+        console.error("Error sending notification:", error);
+        alert("Something went wrong!");
+      });
+    }
+  </script>
+
+</body>
+</html>
