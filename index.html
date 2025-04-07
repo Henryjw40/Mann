@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mess with Grinder</title>
+  <title>Mess with Mann</title>
   <style>
     body {
       background-color: #111;
@@ -43,14 +43,14 @@
   <button class="alarm-button" onclick="sendPushover()">
     <div>Mess</div>
     <div>With</div>
-    <div>Grinder</div>
+    <div>Steve</div>
   </button>
 
   <script>
     function sendPushover() {
       const token = "ahtyqc594aau4aj5ftcupgky7znu64";       // Replace with your app token
-      const user = "uftmczjsvu9oqt2jgguyfvfqa7hcy";         // Replace with your user key
-      const sound = "grinder";    // Replace with your sound (e.g., 'bike', 'alien', etc.)
+      const user = "uepjew7fboqxrd5921tun4e2p4gqse";         // Replace with your user key
+      const sound = "mannsucks";    // Replace with your sound (e.g., 'bike', 'alien', etc.)
 
       fetch("https://api.pushover.net/1/messages.json", {
         method: "POST",
@@ -61,7 +61,7 @@
           token: token,
           user: user,
           message: "🔔 You suck!",
-          title: "Grinder Alert",
+          title: "",
           sound: sound
         })
       })
@@ -69,7 +69,7 @@
         if (!response.ok) {
           alert("Failed to send notification!");
         } else {
-          alert("Pushover notification sent!");
+          alert("Thanks for messing with Steve!");
         }
       })
       .catch(error => {
